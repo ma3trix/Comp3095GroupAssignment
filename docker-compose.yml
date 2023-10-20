@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+
+  user-service:
+    image: user-service
+
+    ports:
+      - "8084:8084"
+    build:
+      context: ./user-service
+      dockerfile: ./Dockerfile
+    container_name: user-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - mongodb
+    networks:
+      - spring
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo/products:/data/db
+      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    container_name: mongodb-ss
+    restart: unless-stopped
+    command: mongod --auth
+    networks:
+      - spring
+
+
+
+networks:
+  spring:
+    driver: bridge
