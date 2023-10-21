@@ -25,7 +25,7 @@ FROM openjdk:17-alpine
 
 RUN mkdir /app
 
-COPY --from=builder /home/gradle/src/build/libs/*.jar /app/user-service.jar
+COPY --from=builder /home/gradle/src/build/libs/*.jar /app/post-service.jar
 
 ENV MONGO_DB_USERNAME=mongoadmin \
     MONGO_DB_PASSWORD=password

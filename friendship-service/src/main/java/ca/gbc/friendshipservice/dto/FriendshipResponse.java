@@ -12,4 +12,7 @@ public class FriendshipResponse {
     private String userId; // ID of the user who initiated the friendship
     private String friendId; // ID of the friend who accepted the friendship
 
+    public FriendshipResponse() {
+
+    }
 }

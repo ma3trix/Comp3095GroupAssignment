@@ -14,7 +14,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
     depends_on:
-      - mongodb
+      - mongodb-us
     networks:
       - spring
 
@@ -30,7 +30,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
     depends_on:
-      - mongodb
+      - mongodb-ps
     networks:
       - spring
 
@@ -46,7 +46,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
     depends_on:
-      - mongodb
+      - mongodb-cs
     networks:
       - spring
 
@@ -54,15 +54,19 @@ services:
     image: friendship-service
 
     ports:
-      - "8086:8086"
+      - "8087:8087"
     build:
       context: ./friendship-service
       dockerfile: ./Dockerfile
     container_name: friendship-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://friendship-db:5432/friendship_database
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: password
     depends_on:
-      - mongodb
+      - mongodb-fs
+      - friendship-db
     networks:
       - spring
 
@@ -117,6 +121,19 @@ services:
     command: mongod --auth
     networks:
       - spring
+
+  friendship-db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: friendship_database
+    container_name: friendship-db
+    restart: unless-stopped
 
 networks:
   spring:

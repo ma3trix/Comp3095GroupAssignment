@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "3db3e92a-eda3-49e3-9350-d3575c259a39",
+		"name": "Post-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29637214"
+	},
+	"item": [
+		{
+			"name": "Get Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8085/api/post"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posts By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8085/api/post/postid"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Best Game of 2023\",\r\n  \"content\": \"Spider-Man 2 (PS5)\",\r\n  \"author\": {\r\n    \"id\": \"10010010\",\r\n    \"username\": \"Sunshine\",\r\n    \"email\": \"Sunshine1@gmail.com\",\r\n    \"password\": \"password\"\r\n  },\r\n  \"createdDate\": \"2023-10-21T14:30:00\",\r\n  \"lastModifiedDate\": \"2023-10-21T14:30:00\" \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8085/api/post"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Best Game of 2023\",\r\n  \"content\": \"Legend Of Zelda: Tears of the Kingdom\",\r\n  \"author\": {\r\n    \"id\": \"10010010\",\r\n    \"username\": \"Sunshine\",\r\n    \"email\": \"Sunshine1@gmail.com\",\r\n    \"password\": \"password\"\r\n  },\r\n  \"createdDate\": \"2023-10-21T14:30:00\",\r\n  \"lastModifiedDate\": \"2023-10-21T14:35:00\" \r\n}"
+				},
+				"url": "http://localhost:8085/api/post/postid"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8085/api/post/postid"
+			},
+			"response": []
+		}
+	]
+}

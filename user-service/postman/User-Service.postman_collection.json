@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "1d3b072f-c8fa-4882-8e68-f0cfc4117d9a",
+		"name": "User-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29637214"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8084/api/user"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Sunshine\",\r\n  \"email\": \"Sunshine1@gmail.com\",\r\n  \"password\": \"password\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8084/api/user"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User by Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"SunshineLolipop\",\r\n  \"email\": \"Sunshine1@gmail.com\",\r\n  \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8084/api/user/userid"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8084/api/user/userid"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8084/api/user/userid"
+			},
+			"response": []
+		}
+	]
+}

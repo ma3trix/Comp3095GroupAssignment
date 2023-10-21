@@ -5,8 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.User;
+// org.apache.catalina.User;
 import org.springframework.data.annotation.Id;
+import ca.gbc.postservice.model.User;
 
 @Data
 @AllArgsConstructor

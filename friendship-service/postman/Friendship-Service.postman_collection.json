@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "38098713-1ff1-44ef-9058-9da985531999",
+		"name": "Friendship-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29637214"
+	},
+	"item": [
+		{
+			"name": "Get Friendship by User Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8087/api/friendship/userId"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Friendship",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"user123\",\r\n    \"friendId\": \"user456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8087/api/friendship"
+			},
+			"response": []
+		},
+		{
+			"name": "AcceptFriendship",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8087/api/friendship/friendshipId"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Friendship",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8087/api/friendship/friendshipid"
+			},
+			"response": []
+		}
+	]
+}

@@ -29,12 +29,16 @@ FROM openjdk:17-alpine
 
 RUN mkdir /app
 
-COPY --from=builder /home/gradle/src/build/libs/*.jar /app/user-service.jar
+COPY --from=builder /home/gradle/src/build/libs/*.jar /app/friendship-service.jar
 
 ENV MONGO_DB_USERNAME=mongoadmin \
     MONGO_DB_PASSWORD=password
 
 #Run products servers on this port
-EXPOSE 8086
+EXPOSE 8087
 
+ENTRYPOINT ["java","-jar","/app/friendship-service.jar"]
+
+FROM openjdk:11-jre-slim
+COPY target/friendship-service.jar app.jar
 ENTRYPOINT ["java","-jar","/app/friendship-service.jar"]

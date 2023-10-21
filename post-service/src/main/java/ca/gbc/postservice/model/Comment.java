@@ -1,7 +1,7 @@
 package ca.gbc.postservice.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.apache.catalina.User;
+//import org.apache.catalina.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

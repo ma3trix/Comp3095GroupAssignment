@@ -84,7 +84,7 @@ public class PostServiceimpl implements PostService {
                 .id(post.getId())
                 .title(post.getTitle())
                 .content(post.getContent())
-                .author((org.apache.catalina.User) post.getAuthor())
+                .author((User) post.getAuthor())
                 .createdDate(post.getCreatedDate())
                 .lastModifiedDate(post.getLastModifiedDate())
                 .build();
