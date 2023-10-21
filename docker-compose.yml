@@ -18,20 +18,105 @@ services:
     networks:
       - spring
 
-  mongodb:
+  post-service:
+    image: post-service
+
+    ports:
+      - "8085:8085"
+    build:
+      context: ./post-service
+      dockerfile: ./Dockerfile
+    container_name: user-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - mongodb
+    networks:
+      - spring
+
+  comment-service:
+    image: comment-service
+
+    ports:
+      - "8086:8086"
+    build:
+      context: ./comment-service
+      dockerfile: ./Dockerfile
+    container_name: comment-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - mongodb
+    networks:
+      - spring
+
+  friendship-service:
+    image: friendship-service
+
+    ports:
+      - "8086:8086"
+    build:
+      context: ./friendship-service
+      dockerfile: ./Dockerfile
+    container_name: friendship-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - mongodb
+    networks:
+      - spring
+
+  mongodb-us:
     image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
       - ./data/mongo/products:/data/db
       - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    container_name: mongodb-ss
+    container_name: mongodb-us
     restart: unless-stopped
     command: mongod --auth
     networks:
       - spring
 
+  mongodb-ps:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo/products:/data/db
+      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    container_name: mongodb-ps
+    restart: unless-stopped
+    command: mongod --auth
+    networks:
+      - spring
 
+  mongodb-cs:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo/products:/data/db
+      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    container_name: mongodb-cs
+    restart: unless-stopped
+    command: mongod --auth
+    networks:
+      - spring
+
+  mongodb-fs:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo/products:/data/db
+      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    container_name: mongodb-cs
+    restart: unless-stopped
+    command: mongod --auth
+    networks:
+      - spring
 
 networks:
   spring:

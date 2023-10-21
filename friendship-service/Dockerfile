@@ -35,6 +35,6 @@ ENV MONGO_DB_USERNAME=mongoadmin \
     MONGO_DB_PASSWORD=password
 
 #Run products servers on this port
-EXPOSE 8084
+EXPOSE 8086
 
-ENTRYPOINT ["java","-jar","/app/user-service.jar"]
+ENTRYPOINT ["java","-jar","/app/friendship-service.jar"]

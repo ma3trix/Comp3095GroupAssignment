@@ -1,8 +1,6 @@
 package ca.gbc.postservice.model;
-import org.apache.catalina.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.AllArgsConstructor;

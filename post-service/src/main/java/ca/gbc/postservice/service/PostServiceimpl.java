@@ -3,6 +3,7 @@ package ca.gbc.postservice.service;
 import ca.gbc.postservice.dto.PostRequest;
 import ca.gbc.postservice.dto.PostResponse;
 import ca.gbc.postservice.model.Post;
+import ca.gbc.postservice.model.User;
 import ca.gbc.postservice.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +30,7 @@ public class PostServiceimpl implements PostService {
         Post post = Post.builder()
                 .title(postRequest.getTitle())
                 .content(postRequest.getContent())
-                .author(postRequest.getAuthor())
+                .author((User) postRequest.getAuthor())
                 .createdDate(LocalDateTime.now())
                 .lastModifiedDate(LocalDateTime.now())
                 .build();
@@ -50,7 +51,7 @@ public class PostServiceimpl implements PostService {
         if (post != null) {
             post.setTitle(postRequest.getTitle());
             post.setContent(postRequest.getContent());
-            post.setAuthor(postRequest.getAuthor());
+            post.setAuthor((User) postRequest.getAuthor());
             post.setLastModifiedDate(LocalDateTime.now());
 
             log.info("Post {} is updated", postId);
@@ -59,6 +60,11 @@ public class PostServiceimpl implements PostService {
         }
         return postId;
     }
+
+    public Post getPostbyId(String postId) {
+        return postRepository.findById(postId).orElse(null);
+    }
+
 
     @Override
     public void deletePost(String postId) {
@@ -78,7 +84,7 @@ public class PostServiceimpl implements PostService {
                 .id(post.getId())
                 .title(post.getTitle())
                 .content(post.getContent())
-                .author(post.getAuthor())
+                .author((org.apache.catalina.User) post.getAuthor())
                 .createdDate(post.getCreatedDate())
                 .lastModifiedDate(post.getLastModifiedDate())
                 .build();

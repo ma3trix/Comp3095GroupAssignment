@@ -22,7 +22,7 @@ public class UserServiceimpl implements UserService {
     private final MongoTemplate mongoTemplate;
 
     @Override
-    public void createUser(UserRequest userRequest){
+    public void createUser(UserRequest userRequest) {
         log.info("Creating new user {}", userRequest.getUsername());
 
         User user = User.builder()
@@ -37,14 +37,14 @@ public class UserServiceimpl implements UserService {
     }
 
     @Override
-    public String updateUser(String userId, UserRequest userRequest){
-        log.info("Updating a user with id {}",userId);
+    public String updateUser(String userId, UserRequest userRequest) {
+        log.info("Updating a user with id {}", userId);
 
         Query query = new Query();
         query.addCriteria(Criteria.where("id").is(userId));
-        User user = mongoTemplate.findOne(query,User.class);
+        User user = mongoTemplate.findOne(query, User.class);
 
-        if(user != null){
+        if (user != null) {
             user.setUsername(userRequest.getUsername());
             user.setPassword(userRequest.getPassword());
             user.setEmail(userRequest.getEmail());
@@ -55,21 +55,22 @@ public class UserServiceimpl implements UserService {
         }
         return userId.toString();
     }
+
     @Override
     public void deleteUser(String userID) {
-        log.info("Product {} is deleted",userID);
+        log.info("Product {} is deleted", userID);
         userRepository.deleteById(userID);
     }
 
     @Override
-    public List<UserResponse> getUsers(){
+    public List<UserResponse> getUsers() {
         log.info("Returning a list of users");
         List<User> users = userRepository.findAll();
         return users.stream().map(this::mapToUserResponse).toList();
     }
 
-    private UserResponse mapToUserResponse(User user){
-        return  UserResponse.builder()
+    private UserResponse mapToUserResponse(User user) {
+        return UserResponse.builder()
                 .id(user.getId())
                 .username(user.getUsername())
                 .password(user.getPassword())
@@ -77,4 +78,9 @@ public class UserServiceimpl implements UserService {
                 .build();
     }
 
+
+    @Override
+    public User getUserbyId(String userId) {
+        return userRepository.findById(userId).orElse(null);
+    }
 }

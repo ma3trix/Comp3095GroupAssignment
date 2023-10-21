@@ -2,6 +2,7 @@ package ca.gbc.userservice.controller;
 
 import ca.gbc.userservice.dto.UserRequest;
 import ca.gbc.userservice.dto.UserResponse;
+import ca.gbc.userservice.model.User;
 import ca.gbc.userservice.service.UserServiceimpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -27,6 +28,12 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public List<UserResponse> getAllUsers(){
         return userService.getUsers();
+    }
+
+    @GetMapping("/{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public User getUser(@PathVariable("userId") String userId) {
+        return userService.getUserbyId(userId);
     }
 
     @PutMapping({"/{userId}"})
