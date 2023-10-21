@@ -4,7 +4,100 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cdd3dab-dc6e-4e4d-be06-f22548751128" name="Changes" comment="" />
+    <list default="true" id="8cdd3dab-dc6e-4e4d-be06-f22548751128" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/src/main/java/ca/gbc/commentservice/CommentServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/src/main/java/ca/gbc/commentservice/model/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comment-service/src/test/java/ca/gbc/commentservice/CommentServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/src/main/java/ca/gbc/friendshipservice/FriendshipServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../friendship-service/src/test/java/ca/gbc/friendshipservice/FriendshipServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../init/mongo/docker-entrypoint-initdb.d/mongo-init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/PostServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/controller/CommentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/controller/PostController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/dto/CommentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/dto/CommentResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/dto/PostRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/dto/PostResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/model/Comment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/model/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/repository/CommentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/repository/PostRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/service/CommentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/service/CommentServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/service/PostService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/java/ca/gbc/postservice/service/PostServiceimpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/test/java/ca/gbc/postservice/AbstractContainerBaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../post-service/src/test/java/ca/gbc/postservice/PostServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/CommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/CommentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/CommentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/CommentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/PostRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/PostRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/PostResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/dto/PostResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/model/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/main/java/ca/gbc/postservice/model/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-service/src/test/java/ca/gbc/postservice/PostServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/post-service/src/test/java/ca/gbc/postservice/PostServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/UserServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/dto/UserRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/dto/UserResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/ca/gbc/userservice/service/UserServiceimpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/resources/application-docker.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/test/java/ca/gbc/userservice/AbstractContainerBaseTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../user-service/src/test/java/ca/gbc/userservice/UserServiceApplicationTests.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +107,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,22 +135,91 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/malikadebiyi/Documents/School Files/Extras/JavaAssignment/springsocial-microservices-parent&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "V2",
+    "last_opened_file_path": "/Users/malikadebiyi/Documents/School Files/Extras/JavaAssignment/springsocial-microservices-parent",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.PostServiceApplicationTests">
+    <configuration name="PostServiceApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":post-service:test" />
+            <option value="--tests" />
+            <option value="&quot;ca.gbc.postservice.PostServiceApplicationTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CommentServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="springsocial-microservices-parent.comment-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ca.gbc.commentservice.CommentServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FriendshipServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="springsocial-microservices-parent.friendship-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ca.gbc.friendshipservice.FriendshipServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="springsocial-microservices-parent.post-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ca.gbc.postservice.PostServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="springsocial-microservices-parent.user-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ca.gbc.userservice.UserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.PostServiceApplicationTests" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -57,6 +231,7 @@
       <workItem from="1697845416511" duration="789000" />
       <workItem from="1697846221941" duration="738000" />
       <workItem from="1697907241360" duration="1883000" />
+      <workItem from="1697915802253" duration="3288000" />
     </task>
     <servers />
   </component>

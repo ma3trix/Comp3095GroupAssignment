@@ -2,10 +2,10 @@ package ca.gbc.postservice;
 
 import ca.gbc.postservice.dto.PostRequest;
 import ca.gbc.postservice.model.Post;
+import ca.gbc.postservice.model.User;
 import ca.gbc.postservice.repository.PostRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.catalina.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,31 +56,31 @@ class PostServiceApplicationTests extends AbstractContainerBaseTest {
         return PostRequest.builder()
                 .title("Post Title")
                 .content("Post Content")
-                .author(author) // Set the author as a User
+                .author(author)
                 .build();
     }
 
     private List<Post> getPostList() {
         List<Post> posts = new ArrayList<>();
 
-        // Create a User object
-        User author = new User();
-        author.setId(UUID.randomUUID().toString());
-        author.setUsername("AuthorUsername");
-        author.setPassword("AuthorPassword");
-        author.setEmail("author@example.com");
+        User author = User.builder()
+                .id(UUID.randomUUID().toString())
+                .username("AuthorUsername")
+                .password("AuthorPassword")
+                .email("author@example.com")
+                .build();
 
-        Post post = new Post();
-        post.setTitle("Post Title");
-        post.setContent("Post Content");
-        post.setAuthor(author); // Set the author as a User
-        post.setCreatedDate(LocalDateTime.now());
-        post.setLastModifiedDate(LocalDateTime.now());
+        Post post = Post.builder()
+                .title("Post Title")
+                .content("Post Content")
+                .author(author)
+                .createdDate(LocalDateTime.now())
+                .lastModifiedDate(LocalDateTime.now())
+                .build();
 
         posts.add(post);
         return posts;
     }
-
 
     @Test
     void createPost() throws Exception {
@@ -102,15 +102,12 @@ class PostServiceApplicationTests extends AbstractContainerBaseTest {
 
     @Test
     void getAllPosts() throws Exception {
-        // Given
         postRepository.saveAll(getPostList());
 
-        // When
         ResultActions response = mockMvc.perform(MockMvcRequestBuilders
                 .get("/api/post")
                 .accept(MediaType.APPLICATION_JSON));
 
-        // Then
         response.andExpect(MockMvcResultMatchers.status().isOk());
         response.andDo(MockMvcResultHandlers.print());
 
@@ -127,7 +124,6 @@ class PostServiceApplicationTests extends AbstractContainerBaseTest {
 
     @Test
     void updatePost() throws Exception {
-        // Given
         Post savedPost = Post.builder()
                 .title("Original Title")
                 .content("Original Content")
@@ -143,17 +139,14 @@ class PostServiceApplicationTests extends AbstractContainerBaseTest {
 
         postRepository.save(savedPost);
 
-        // Prepare updated post and postRequest
         savedPost.setTitle("Updated Title");
         String postRequestString = objectMapper.writeValueAsString(savedPost);
 
-        // When
         ResultActions response = mockMvc.perform(MockMvcRequestBuilders
                 .put("/api/post/" + savedPost.getId().toString())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(postRequestString));
 
-        // Then
         response.andExpect(MockMvcResultMatchers.status().isNoContent());
         response.andDo(MockMvcResultHandlers.print());
 
@@ -166,7 +159,6 @@ class PostServiceApplicationTests extends AbstractContainerBaseTest {
 
     @Test
     void deletePost() throws Exception {
-        // Given
         Post savedPost = Post.builder()
                 .title("Post Title")
                 .content("Post Content")
@@ -182,12 +174,10 @@ class PostServiceApplicationTests extends AbstractContainerBaseTest {
 
         postRepository.save(savedPost);
 
-        // When
         ResultActions response = mockMvc.perform(MockMvcRequestBuilders
                 .delete("/api/post/" + savedPost.getId().toString())
                 .contentType(MediaType.APPLICATION_JSON));
 
-        // Then
         response.andExpect(MockMvcResultMatchers.status().isNoContent());
         response.andDo(MockMvcResultHandlers.print());
 
@@ -196,6 +186,5 @@ class PostServiceApplicationTests extends AbstractContainerBaseTest {
         Long postCount = mongoTemplate.count(query, Post.class);
 
         assertEquals(0, postCount);
-
     }
 }
