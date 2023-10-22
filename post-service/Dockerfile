@@ -30,7 +30,7 @@ COPY --from=builder /home/gradle/src/build/libs/*.jar /app/post-service.jar
 ENV MONGO_DB_USERNAME=mongoadmin \
     MONGO_DB_PASSWORD=password
 
-#Run products servers on this port
+#Run post servers on this port
 EXPOSE 8085
 
 ENTRYPOINT ["java","-jar","/app/post-service.jar"]

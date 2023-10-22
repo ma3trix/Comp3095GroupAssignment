@@ -1,5 +1,5 @@
 #--------------------------------
-# Dockerfile for product-service
+# Dockerfile for comment-service
 #--------------------------------
 
 #--------------------
@@ -34,7 +34,7 @@ COPY --from=builder /home/gradle/src/build/libs/*.jar /app/comment-service.jar
 ENV MONGO_DB_USERNAME=mongoadmin \
     MONGO_DB_PASSWORD=password
 
-#Run products servers on this port
+#Run comments servers on this port
 EXPOSE 8086
 
 ENTRYPOINT ["java","-jar","/app/comment-service.jar"]
