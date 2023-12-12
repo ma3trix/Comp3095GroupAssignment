@@ -1,5 +1,5 @@
 #--------------------------------
-# Dockerfile for product-service
+# Dockerfile for user-service
 #--------------------------------
 
 #--------------------

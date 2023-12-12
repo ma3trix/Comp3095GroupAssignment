@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "6829d08a-21c2-484d-9ecc-75ec1b45292e",
+		"name": "Comment-Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29637214"
+	},
+	"item": [
+		{
+			"name": "Delete Comment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8181/api/comment/commentId"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"Game of the user for sure after Spiderman 2\",\r\n    \"author\": {\r\n        \"id\": \"userId\",\r\n        \"username\": \"Sunshine\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8181/api/comment/commentId"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"Game of the user for sure\",\r\n    \"author\": {\r\n        \"id\": \"userId\",\r\n        \"username\": \"Sunshine\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8181/api/comment"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comment by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8181/api/comment/commentId"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8181/api/comment"
+			},
+			"response": []
+		}
+	]
+}

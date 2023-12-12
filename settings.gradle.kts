@@ -1,3 +1,3 @@
 rootProject.name = "springsocial-microservices-parent"
 include("comment-service","friendship-service"
-        , "post-service", "user-service")
+        , "post-service", "user-service","discovery-service","api-gateway")

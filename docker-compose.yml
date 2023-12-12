@@ -2,15 +2,48 @@ version: '3.8'
 
 services:
 
+  discovery-service-ss:
+    image: discovery-service
+    ports:
+      - "8761:8761"
+    build:
+      context: ./discovery-service
+      dockerfile: ./Dockerfile
+    container_name: discovery-service-ss
+    environment:
+      SPRING_PROFILE_ACTIVE: docker
+      eureka_instance_hostname: discovery-service
+      eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka
+    networks:
+      - spring
+
+  api-gateway-ss:
+    image: api-gateway
+    ports:
+      - "8181:8181"
+    expose:
+      - "8181"
+    build:
+      context: ./api-gateway
+      dockerfile: ./Dockerfile
+    container_name: api-gateway-ss
+    environment:
+      SPRING_PROFILE_ACTIVE: docker
+      eureka.client.serviceUrl.defaultZone: http://discovery-service:8761/eureka
+      LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_SECURITY: DEBUG
+    depends_on:
+      - discovery-service-ss
+    networks:
+      - spring
+
   user-service:
     image: user-service
-
     ports:
       - "8084:8084"
     build:
       context: ./user-service
       dockerfile: ./Dockerfile
-    container_name: user-service
+    container_name: user-service-ss
     environment:
       SPRING_PROFILES_ACTIVE: docker
     depends_on:
@@ -20,13 +53,12 @@ services:
 
   post-service:
     image: post-service
-
     ports:
       - "8085:8085"
     build:
       context: ./post-service
       dockerfile: ./Dockerfile
-    container_name: user-service
+    container_name: post-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
     depends_on:
@@ -34,25 +66,23 @@ services:
     networks:
       - spring
 
-  comment-service:
-    image: comment-service
-
-    ports:
-      - "8086:8086"
-    build:
-      context: ./comment-service
-      dockerfile: ./Dockerfile
-    container_name: comment-service
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-    depends_on:
-      - mongodb-cs
-    networks:
-      - spring
+  #  comment-service:
+  #    image: comment-service
+  #    ports:
+  #      - "8086:8086"
+  #    build:
+  #      context: ./comment-service
+  #      dockerfile: ./Dockerfile
+  #    container_name: comment-service
+  #    environment:
+  #      SPRING_PROFILES_ACTIVE: docker
+  #    depends_on:
+  #      - mongodb-comment
+  #    networks:
+  #      - spring
 
   friendship-service:
     image: friendship-service
-
     ports:
       - "8087:8087"
     build:
@@ -61,11 +91,7 @@ services:
     container_name: friendship-service
     environment:
       SPRING_PROFILES_ACTIVE: docker
-      SPRING_DATASOURCE_URL: jdbc:postgresql://friendship-db:5432/friendship_database
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: password
     depends_on:
-      - mongodb-fs
       - friendship-db
     networks:
       - spring
@@ -86,7 +112,7 @@ services:
   mongodb-ps:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "27018:27018"
     volumes:
       - ./data/mongo/products:/data/db
       - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
@@ -96,44 +122,92 @@ services:
     networks:
       - spring
 
-  mongodb-cs:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - ./data/mongo/products:/data/db
-      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    container_name: mongodb-cs
-    restart: unless-stopped
-    command: mongod --auth
-    networks:
-      - spring
+  #  mongodb-comment:
+  #    image: mongo:latest
+  #    ports:
+  #      - "27019:27019"
+  #    volumes:
+  #      - ./data/mongo/products:/data/db
+  #      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+  #    container_name: mongodb-comment
+  #    restart: unless-stopped
+  #    command: mongod --auth
+  #    networks:
+  #      - spring
 
-  mongodb-fs:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - ./data/mongo/products:/data/db
-      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    container_name: mongodb-cs
-    restart: unless-stopped
-    command: mongod --auth
-    networks:
-      - spring
+
 
   friendship-db:
     image: postgres:latest
     ports:
       - "5432:5432"
-    volumes:
-      - ./data/postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: friendship_database
-    container_name: friendship-db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=friendship-service
+    volumes:
+      - ./data/postgres/friendship-service:/data/postgres
+      - ./init/postgres/friendship-service/init.sql:/docker-entrypoint-initdb.d/init.sql
+    container_name: friendship-postgres
     restart: unless-stopped
+    networks:
+      - spring
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8888:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=user@domain.ca
+      - PGADMIN_PASSWORD=password
+    container_name: pgadmin
+    restart: unless-stopped
+    networks:
+      - spring
+
+  postgres-keycloak-ss:
+    image: postgres
+    restart: unless-stopped
+    ports:
+      - "5431:5432"
+    environment:
+       POSTGRES_USER: keycloak
+       POSTGRES_PASSWORD: password
+       POSTGRES_DB: keycloak
+    volumes:
+      - ./db-data:/var/lib.postgresql/data
+    container_name: postgres-keycloak-ss
+
+  keycloak-ss:
+    image: jboss/keycloak
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+       JBOSS_LOG_MANAGER_ROOT_LOADER: DEBUG
+       DB_VENDOR: postgres-keycloak
+       DB_ADDR: postgres-keycloak
+       DB_DATABASE: keycloak
+       DB_USER: keycloak
+       DB_PASSWORD: password
+       DB_SCHEMA: public
+       KEYCLOAK_USER: admin
+       KEYCLOAK_PASSWORD: password
+       KEYCLOAK_IMPORT: /opt/jboss/keycloak/realms/spring-boot-springsocial-realm.json
+    volumes:
+      - ./realms/:/opt/jboss/keycloak/realms
+    container_name: keycloak-ss
+    depends_on:
+      - postgres-keycloak-ss
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    restart: unless-stopped
+    ports:
+      - "9411:9411"
+    container_name: zipkin
+    networks:
+      - spring
 
 networks:
   spring:

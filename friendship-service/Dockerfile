@@ -1,44 +1,38 @@
 #--------------------------------
-# Dockerfile for product-service
+# Build stage
 #--------------------------------
 
-#--------------------
-#Build stage
-#--------------------
+# Use a Gradle base image for building
+FROM gradle:8-jdk17 AS builder
 
-# base image
-FROM gradle:8-jdk17-alpine AS builder
-
-# Copy the application files from the host machine to the image filesystem
-COPY --chown=gradle:gradle . /home/gradle/src
-
-# set the directory within the image, for executing future commands
+# Set the working directory within the image
 WORKDIR /home/gradle/src
 
-# run gradle build within the container - NOT the host machine
-# for RUN commands, the command only apply to images
-# RUN gradle build ---no-daemon -x test -- this did NOT WORK
+# Copy the Gradle build files and sources
+COPY --chown=gradle:gradle . .
+
+# Build the application (skip tests)
 RUN gradle build -x test
 
 #---------------------------------
-#---Package Stage
+# Package Stage
 #------------------------------------
 
-# Base Image
+# Use a smaller runtime image
 FROM openjdk:17-alpine
 
+# Create a directory for the application
 RUN mkdir /app
 
+# Copy the built JAR file from the builder stage
 COPY --from=builder /home/gradle/src/build/libs/*.jar /app/friendship-service.jar
 
-ENV MONGO_DB_USERNAME=mongoadmin \
-    MONGO_DB_PASSWORD=password
+# Set environment variables if needed
+ENV MONGO_DB_USERNAME=mongoadmin
+ENV MONGO_DB_PASSWORD=password
 
-#Run products servers on this port
+# Expose the port on which the application will run
 EXPOSE 8087
 
-ENTRYPOINT ["java","-jar","/app/friendship-service.jar"]
-
-FROM openjdk:11-jre-slim
-COPY target/friendship-service.jar app.jar
-ENTRYPOINT ["java","-jar","/app/friendship-service.jar"]
+# Specify the entry point to start the application
+ENTRYPOINT ["java", "-jar", "/app/friendship-service.jar"]
